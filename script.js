@@ -102,3 +102,4 @@ document.addEventListener('DOMContentLoaded', () => {
 function closeBookingForm() {
     document.getElementById("bookingForm").style.display = "none";
 }
+
