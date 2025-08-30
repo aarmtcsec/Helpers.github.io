@@ -1,78 +1,76 @@
-/*
-    script.js — full replacement
-    - Smooth scrolling
-    - Remove 30-min button
-    - Wire 60-min & Boost buttons → prefill form + scroll
-    - Handle form submit and show confirmation
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Smooth Scrolling for all nav links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const top = targetElement.getBoundingClientRect().top + window.pageYOffset - 10;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
         });
+      }
     });
+  });
 
-    // --- Helper functions ---
-    function preselectSession(value) {
-        const select = document.getElementById('session');
-        if (select) {
-            select.value = value;
-            select.dispatchEvent(new Event('change'));
-        }
-    }
+  // --- Contact Form Handling (still simulated) ---
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      console.log('Contact Form:', name, email, message);
 
-    function scrollToContactAndFocusDate() {
-        const contact = document.getElementById('contact');
-        if (contact) {
-            const top = contact.getBoundingClientRect().top + window.pageYOffset - 10;
-            window.scrollTo({ top, behavior: 'smooth' });
-        }
-        const dateInput = document.getElementById('date');
-        if (dateInput) {
-            // small delay so focus happens after scroll starts
-            setTimeout(() => dateInput.focus(), 350);
-        }
-    }
+      const messageBox = document.createElement('div');
+      messageBox.className = 'message-box';
+      messageBox.innerHTML = `
+        <div class="message-content">
+          <h3>Thank You!</h3>
+          <p>We have received your message and will get back to you within 24 hours.</p>
+          <button class="message-close-btn">OK</button>
+        </div>`;
+      document.body.appendChild(messageBox);
+      messageBox.querySelector('.message-close-btn').addEventListener('click', () => {
+        messageBox.remove();
+      });
+      contactForm.reset();
+    });
+  }
 
-    function showMessageBox(html) {
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.inset = '0';
-        overlay.style.background = 'rgba(0,0,0,0.4)';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.zIndex = '9999';
+  // --- Remove 30-min button ---
+  const btn30 = document.getElementById('30-min-Button');
+  if (btn30) btn30.remove();
 
-        const box = document.createElement('div');
-        box.style.maxWidth = '440px';
-        box.style.width = '90%';
-        box.style.background = '#fff';
-        box.style.borderRadius = '12px';
-        box.style.boxShadow = '0 10px 30px rgba(0,0,0,.2)';
-        box.style.padding = '18px 20px';
-        box.style.fontFamily = 'system-ui, -apple-system, Segoe UI, Roboto, Arial';
-        box.style.lineHeight = '1.45';
-        box.innerHTML = `
-            <div>${html}</div>
-            <div style="margin-top:14px; text-align:right;">
-                <button id="msgCloseBtn" style="
-                    padding:8px 14px; border-radius:9999px; border:1px solid #ddd;
-                    background:#fff; cursor:pointer;">OK</button>
-            </div>
-        `;
+  // --- 60-min button opens popup ---
+  const btn60 = document.getElementById('60-min-Button');
+  const bookingForm = document.getElementById('bookingForm');
+  const closeBooking = document.getElementById('closeBooking');
 
-        overlay.appendChild(box);
-        document.body.appendChild(overlay);
-        document.getElementById('msgCloseBtn').onclick = () => overlay.remove();
-    }
+  if (btn60 && bookingForm) {
+    btn60.addEventListener('click', () => {
+      bookingForm.style.display = 'block';
+    });
+  }
 
-    // --- Remove 30-min button if present
+  if (closeBooking) {
+    closeBooking.addEventListener('click', () => {
+      bookingForm.style.display = 'none';
+    });
+  }
+
+  // --- Session Form (Formspree submission) ---
+  const sessionForm = document.getElementById('sessionForm');
+  if (sessionForm) {
+    sessionForm.addEventListener('submit', function () {
+      // Let Formspree handle sending to email.
+      // Just show confirmation after submission.
+      setTimeout(() => {
+        alert("✅ Thank you! Your booking was sent. Check your email for a follow-up question.");
+        bookingForm.style.display = 'none';
+      }, 500);
+    });
+  }
+});
