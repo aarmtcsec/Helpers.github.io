@@ -60,6 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Contact Form ---
+    enhanceContactForm();
+});
+
+function enhanceContactForm() {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -122,5 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         });
     }
-});
-
+}
