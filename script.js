@@ -85,14 +85,26 @@ function enhanceContactForm() {
     
     // --- 60-min button opens popup ---
     const button60 = document.getElementById('60-min-Button');
+    const buttonFreeChat = document.getElementById('free-chat-Button');
+    const linkContact = document.getElementById('contactLink');
     const bookingForm = document.getElementById('contact-placeholder');
    
     if (button60 && bookingForm ) {
         button60.addEventListener('click', () => {
             bookingForm.style.display = 'block'; // show popup
         });
+    }
 
-   
+    if (buttonFreeChat && bookingForm ) {
+        buttonFreeChat.addEventListener('click', () => {
+            bookingForm.style.display = 'block'; // show popup
+        });
+    }
+
+    if (linkContact && bookingForm ) {
+        linkContact.addEventListener('click', () => {
+            bookingForm.style.display = 'block'; // show popup
+        });
     }
 
     // --- Booking form submission ---
