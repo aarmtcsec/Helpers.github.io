@@ -89,7 +89,7 @@ function enhanceContactForm() {
    
     if (button60 && bookingForm ) {
         button60.addEventListener('click', () => {
-            bookingForm.style.display = 'flex'; // show popup
+            contactForm.style.display = 'flex'; // show popup
         });
 
    
