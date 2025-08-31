@@ -5,6 +5,35 @@
     - Booking popup for 60-min sessions only
 */
 
+function loadContent(page, section) {
+    fetch(page)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(section).innerHTML = data;
+            
+            // Set active navigation item
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+}
+
+document.addEventListener('DOMContentLoaded', loadContent('header.html','header-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('footer.html','footer-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('specialties.html','specialties-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('methods.html','methods-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('more-than-tutoring.html','tutoring-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('what-makes-us-different.html','different-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('outcomes.html','outcomes-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('packages.html','packages-placeholder')) ;
+document.addEventListener('DOMContentLoaded', loadContent('contact.html','contact-placeholder')) ;
+// Note: Booking form is embedded directly in index.html
+ 
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Smooth Scrolling ---
@@ -87,30 +116,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function loadContent(page, section) {
-    fetch(page)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(section).innerHTML = data;
-            
-            // Set active navigation item
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-}
-
-document.addEventListener('DOMContentLoaded', loadContent('header.html','header-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('footer.html','footer-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('specialties.html','specialties-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('methods.html','methods-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('more-than-tutoring.html','tutoring-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('what-makes-us-different.html','different-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('outcomes.html','outcomes-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('packages.html','packages-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('contact.html','contact-placeholder')) ;
-// Note: Booking form is embedded directly in index.html
