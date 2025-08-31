@@ -1,0 +1,13 @@
+[Sun Aug 31 11:55:27.310593 2025] [mpm_winnt:notice] [pid 26904:tid 444] AH00455: Apache/2.4.65 (Win64) configured -- resuming normal operations
+[Sun Aug 31 11:55:27.311824 2025] [mpm_winnt:notice] [pid 26904:tid 444] AH00456: Apache Lounge VS17 Server built: Jul 24 2025 14:32:29
+[Sun Aug 31 11:55:27.311824 2025] [core:notice] [pid 26904:tid 444] AH00094: Command line: 'C:\\Users\\aamar\\server\\Apache24\\bin\\httpd.exe -d C:/Users/aamar/server/Apache24'
+[Sun Aug 31 11:55:27.315849 2025] [mpm_winnt:notice] [pid 26904:tid 444] AH00418: Parent: Created child process 13344
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 13344:tid 440] AH00354: Child: Starting 64 worker threads.
+[Sun Aug 31 11:56:10.839241 2025] [core:crit] [pid 13344:tid 1212] [client ::1:54604] AH00025: configuration error:  couldn't check user: /
+[Sun Aug 31 11:56:12.308411 2025] [core:crit] [pid 13344:tid 1208] [client ::1:55368] AH00025: configuration error:  couldn't check user: /favicon.ico, referer: http://localhost/
+[Sun Aug 31 11:57:21.982634 2025] [core:crit] [pid 13344:tid 1208] [client ::1:55560] AH00025: configuration error:  couldn't check user: /
+[Sun Aug 31 11:57:22.320273 2025] [core:crit] [pid 13344:tid 1208] [client ::1:64175] AH00025: configuration error:  couldn't check user: /favicon.ico, referer: http://localhost/
+[Sun Aug 31 12:00:06.437021 2025] [mpm_winnt:notice] [pid 26904:tid 444] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sun Aug 31 12:00:08.462656 2025] [mpm_winnt:notice] [pid 13344:tid 440] AH00364: Child: All worker threads have exited.
+[Sun Aug 31 12:00:08.483905 2025] [mpm_winnt:notice] [pid 26904:tid 444] AH00430: Parent: Child process 13344 exited successfully.
