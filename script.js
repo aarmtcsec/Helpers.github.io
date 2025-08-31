@@ -105,7 +105,7 @@ function loadContent(page, section) {
 }
 
 document.addEventListener('DOMContentLoaded', loadContent('header.html','header-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('footer.html','site-footer')) ;
+document.addEventListener('DOMContentLoaded', loadContent('footer.html','footer-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('specialties.html','specialties-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('methods.html','methods-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('more-than-tutoring.html','tutoring-placeholder')) ;
