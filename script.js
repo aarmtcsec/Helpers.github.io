@@ -85,7 +85,7 @@ function enhanceContactForm() {
     
     // --- 60-min button opens popup ---
     const button60 = document.getElementById('60-min-Button');
-    const bookingForm = document.getElementById('bookingForm');
+    const bookingForm = document.getElementById('contact');
    
     if (button60 && bookingForm ) {
         button60.addEventListener('click', () => {
