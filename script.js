@@ -10,7 +10,6 @@ function loadContent(page, section) {
         .then(response => response.text())
         .then(data => {
             document.getElementById(section).innerHTML = data;
-            
             // Set active navigation item
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             const navLinks = document.querySelectorAll('.nav-menu a');
@@ -19,6 +18,10 @@ function loadContent(page, section) {
                     link.classList.add('active');
                 }
             });
+            // Call enhanceContactForm after contact.html is loaded
+            if (page === 'contact.html') {
+                enhanceContactForm();
+            }
         });
 }
 
@@ -58,9 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // --- Contact Form ---
-    enhanceContactForm();
 });
 
 function enhanceContactForm() {
