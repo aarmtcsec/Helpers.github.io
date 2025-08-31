@@ -22,7 +22,7 @@ function loadContent(page, section) {
         });
 }
 
-document.addEventListener('DOMContentLoaded', loadContent('header.html','header-placeholder')) ;
+/** document.addEventListener('DOMContentLoaded', loadContent('header.html','header-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('footer.html','footer-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('specialties.html','specialties-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('methods.html','methods-placeholder')) ;
@@ -32,10 +32,18 @@ document.addEventListener('DOMContentLoaded', loadContent('outcomes.html','outco
 document.addEventListener('DOMContentLoaded', loadContent('packages.html','packages-placeholder')) ;
 document.addEventListener('DOMContentLoaded', loadContent('contact.html','contact-placeholder')) ;
 // Note: Booking form is embedded directly in index.html
- 
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    loadContent('header.html', 'header-placeholder');
+    loadContent('footer.html', 'footer-placeholder');
+    loadContent('specialties.html', 'specialties-placeholder');
+    loadContent('methods.html', 'methods-placeholder');
+    loadContent('more-than-tutoring.html', 'tutoring-placeholder');
+    loadContent('what-makes-us-different.html', 'different-placeholder');
+    loadContent('outcomes.html', 'outcomes-placeholder');
+    loadContent('packages.html', 'packages-placeholder');
+    loadContent('contact.html', 'contact-placeholder');
     // --- Smooth Scrolling ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
