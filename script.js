@@ -85,11 +85,11 @@ function enhanceContactForm() {
     
     // --- 60-min button opens popup ---
     const button60 = document.getElementById('60-min-Button');
-    const bookingForm = document.getElementById('contact');
+    const bookingForm = document.getElementById('contact-placeholder');
    
     if (button60 && bookingForm ) {
         button60.addEventListener('click', () => {
-            contactForm.style.display = 'flex'; // show popup
+            bookingForm.style.display = 'block'; // show popup
         });
 
    
