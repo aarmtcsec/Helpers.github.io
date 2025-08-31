@@ -25,18 +25,6 @@ function loadContent(page, section) {
         });
 }
 
-/** document.addEventListener('DOMContentLoaded', loadContent('header.html','header-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('footer.html','footer-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('specialties.html','specialties-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('methods.html','methods-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('more-than-tutoring.html','tutoring-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('what-makes-us-different.html','different-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('outcomes.html','outcomes-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('packages.html','packages-placeholder')) ;
-document.addEventListener('DOMContentLoaded', loadContent('contact.html','contact-placeholder')) ;
-// Note: Booking form is embedded directly in index.html
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     loadContent('header.html', 'header-placeholder');
     loadContent('footer.html', 'footer-placeholder');
@@ -94,24 +82,16 @@ function enhanceContactForm() {
         });
     }
 
-    // --- Remove other package buttons (30-min + Boost) ---
-    const button30 = document.getElementById('30-min-Button');
-    const boostBtn = document.getElementById('boost-Button');
-    if (button30) button30.style.display = 'none';
-    if (boostBtn) boostBtn.style.display = 'none';
-
+    
     // --- 60-min button opens popup ---
     const button60 = document.getElementById('60-min-Button');
     const bookingForm = document.getElementById('bookingForm');
-    const closeBooking = document.getElementById('closeBooking');
-
-    if (button60 && bookingForm && closeBooking) {
+   
+    if (button60 && bookingForm ) {
         button60.addEventListener('click', () => {
             bookingForm.style.display = 'flex'; // show popup
         });
 
-        closeBooking.addEventListener('click', () => {
-            bookingForm.style.display = 'none'; // hide popup
         });
     }
 
