@@ -92,7 +92,7 @@ function enhanceContactForm() {
             bookingForm.style.display = 'flex'; // show popup
         });
 
-        });
+   
     }
 
     // --- Booking form submission ---
